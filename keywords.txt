@@ -1,0 +1,8 @@
+BufferedTrace		KEYWORD1
+init     			KEYWORD2
+open    			KEYWORD2
+close    			KEYWORD2
+setStream			KEYWORD2
+trace    			KEYWORD2
+itrace  			KEYWORD2
+setAutoFlush        KEYWORD2
