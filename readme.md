@@ -18,6 +18,8 @@ you write data into that buffer. The underlying Serial code will immediately sta
 In general, this will cause interrupts to fire, which can interfere with your time-critical code. When you use BufferedTrace,
 transmission won't begin until your time-critical code has completed.
 
+See [API Documentation](https://msnicklous.github.io/BufferedTrace/)
+
 ---
 
 ## Arduino Code
