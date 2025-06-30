@@ -96,16 +96,15 @@ $(function(){initNavTree('index.html','',''); });
 <p>by <a href="https://github.com/msnicklous/">Martin Scott Nicklous</a> | <a href="https://github.com/msnicklous/BufferedTrace/">Github Project Page</a></p>
 <p>Released under the MIT License</p>
 <hr  />
- <h1 class="doxsection"><a class="anchor" id="autotoc_md5"></a>
+ <h1 class="doxsection"><a class="anchor" id="autotoc_md6"></a>
 Overview</h1>
 <p>A common debugging technique is sending trace information to a console <br  />
  through the serial interface. Sometimes you need to collect information from time-critical portions of your code and send it to the console later in order to minimize trace impact on program timing. This library helps you do that.</p>
 <p>The Serial object (and probably most other serial stream implementations) has a buffer, and when you use Serial.println(), you write data into that buffer. The underlying Serial code will immediately start sending data over the serial interface. In general, this will cause interrupts to fire, which can interfere with your time-critical code. When you use BufferedTrace, transmission won't begin until your time-critical code has completed.</p>
-<p>See <a href="./index.html">API documentation</a> .</p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md7"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md8"></a>
 Arduino Code</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md8"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md9"></a>
 Getting Started</h2>
 <p>To begin, include the BufferedTrace Library at the top of your sketch.</p>
 <div class="fragment"><div class="line">#include &lt;BufferedTrace.h&gt;</div>
@@ -125,7 +124,7 @@ Getting Started</h2>
 <div class="line">  ...</div>
 <div class="line">}</div>
 </div><!-- fragment --><p>As a general tip, you usually want to keep your tracing brief, both to conserve memory as well as for timing reasons. It takes about 7 milliseconds to transfer 80 bytes, and for some applications, that delay can be significant.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md9"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md10"></a>
 Buffered Tracing</h2>
 <p>To used buffered tracing, you bracket the Trace.trace() calls between the Trace.open() and Trace.close() calls. Trace.open() resets the buffer and starts collecting trace data. Trace.close() causes all trace data collected by the Trace.trace() calls to be written to the serial interface. I usually put Trace.open() at the top of the loop() block and Trace.close() at the end.</p>
 <div class="fragment"><div class="line">void loop() {</div>
@@ -147,7 +146,7 @@ Buffered Tracing</h2>
 <div class="line">  Trace.close();</div>
 <div class="line">}</div>
 </div><!-- fragment --><p> If you call Trace.trace() either before calling Trace.open() or after calling Trace.close(), any data will be ignored.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md10"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md11"></a>
 Immediate Tracing</h2>
 <p>The Trace.itrace() function will immediately write a string to the serial interface without regards for contents of the buffer.</p>
 <div class="fragment"><div class="line">void loop() {</div>
