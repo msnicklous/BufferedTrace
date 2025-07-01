@@ -61,7 +61,6 @@ setup() {
 ```
 
 As a general tip, you usually want to keep your tracing brief, both to conserve memory as well as for timing reasons. 
-It takes about 7 milliseconds to transfer 80 bytes, and for some applications, that delay can be significant.
 
 
 ### Buffered Tracing
