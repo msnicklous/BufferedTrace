@@ -30,7 +30,8 @@ var NAVTREE =
       [ "[v0.0.1]", "md__c_1_2dev_2_arduino_2tries_2libraries_2_buffered_trace_2changelog.html#autotoc_md1", [
         [ "Added", "md__c_1_2dev_2_arduino_2tries_2libraries_2_buffered_trace_2changelog.html#autotoc_md2", null ]
       ] ],
-      [ "[v1.0.0]", "md__c_1_2dev_2_arduino_2tries_2libraries_2_buffered_trace_2changelog.html#autotoc_md3", null ]
+      [ "[v1.0.0]", "md__c_1_2dev_2_arduino_2tries_2libraries_2_buffered_trace_2changelog.html#autotoc_md3", null ],
+      [ "[v1.0.1]", "md__c_1_2dev_2_arduino_2tries_2libraries_2_buffered_trace_2changelog.html#autotoc_md4", null ]
     ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
