@@ -14,9 +14,6 @@ void BufferedTrace::setStream(Stream& serial) {
 }
 
 void BufferedTrace::init(uint16_t buflen) {
-	
-  Serial.println("in BT");
-  Serial.println("using ser");
 
   // should not be called multiple times, but if so, avoid memory leaks
   free(buffer);
