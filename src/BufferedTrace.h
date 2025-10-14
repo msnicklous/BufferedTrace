@@ -79,6 +79,13 @@ public:
    */
   void trace(const char* string);
 
+  /**
+   * @brief buffers a string for output. This overload allows the F() macro to be used to place the string in PROGMEM.
+   * @details only works within an open - close bracket.
+   * @param string - the string to be displayed, stored in PROGMEM
+   */
+  void trace(const __FlashStringHelper* string);
+
 
   /**
    * @brief whether or not to flush the buffer when full
@@ -108,6 +115,13 @@ private:
 
   // helper funtion to add string to buffer only if there is room
   void add2Buffer(const char* string);
+
+  /**
+   * template to allow strings to be in sram or progmem
+   */
+  template<typename StoredString>
+  void trace(StoredString getChar);
+  
 };
 
 // global trace object for convenience
