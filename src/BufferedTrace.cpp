@@ -58,35 +58,6 @@ void BufferedTrace::close() {
   buffer[0] = '\0';
 }
 
-// resulting trace strings should be short. Long strings can impact performance.
-void BufferedTrace::trace(const char* string, long val) {
-  if (!traceOn || !isOpen) return;
-
-  char tempbuf[14];  // a long can be max 11 chars
-  sprintf(tempbuf, "%ld", val);
-
-  if (strlen(buffer) != 0) {
-    add2Buffer(", ");
-  }
-  add2Buffer(string);
-  add2Buffer("=");
-  add2Buffer(tempbuf);
-
-}
-
-// resulting trace strings should be short. Long strings can impact performance.
-void BufferedTrace::trace(const char* string, const char* val) {
-  if (!traceOn || !isOpen) return;
-
-  if (strlen(buffer) != 0) {
-    add2Buffer(", ");
-  }
-  add2Buffer(string);
-  add2Buffer("=");
-  add2Buffer(val);
-
-}
-
 // strings should be short.
 template<typename StoredString>
 void BufferedTrace::trace(StoredString getChar) {
@@ -119,13 +90,94 @@ void BufferedTrace::trace(const __FlashStringHelper* fstr) {
   });
 }
 
-// immediate trace ignoring buffer contents
-void BufferedTrace::itrace(const char* string) {
-  if (!traceOn) return;
+// Template version
+template<typename StoredString>
+void BufferedTrace::trace(StoredString getChar, long value) {
+  if (!traceOn || !isOpen) return;
+
+  char tempbuf[14];
+  sprintf(tempbuf, "%ld", value);
+  
+  // Use existing trace() - it handles comma separation
+  trace(getChar);
+  
+  add2Buffer("=");
+  add2Buffer(tempbuf);
+}
+
+// Public overloads
+void BufferedTrace::trace(const char* label, long value) {
+  trace([label](int index) -> char {
+    return label[index];
+  }, value);
+}
+
+void BufferedTrace::trace(const __FlashStringHelper* label, long value) {
+  const char* fptr = reinterpret_cast<const char*>(label);
+  trace([fptr](int index) -> char {
+    return pgm_read_byte(fptr + index);
+  }, value);
+}
+
+
+// Template version
+template<typename StoredString>
+void BufferedTrace::trace(StoredString getChar, const char* string) {
+  if (!traceOn || !isOpen) return;
+  
+  // Use existing trace() - it handles comma separation
+  trace(getChar);
+  add2Buffer("=");
+  add2Buffer(string);
+}
+
+// Public overloads
+void BufferedTrace::trace(const char* label, const char* value) {
+  trace([label](int index) -> char {
+    return label[index];
+  }, value);
+}
+
+void BufferedTrace::trace(const __FlashStringHelper* label, const char* value) {
+  const char* fptr = reinterpret_cast<const char*>(label);
+  trace([fptr](int index) -> char {
+    return pgm_read_byte(fptr + index);
+  }, value);
+}
+
+
+// strings should be short.
+template<typename StoredString>
+void BufferedTrace::itrace(StoredString getChar) {
+  if (!traceOn || !isOpen) return;
   ser.flush();
-  ser.println(string);
+  char cb[2];
+  cb[1] = '\0';
+  for (int i=0;;i++) {
+    char c = getChar(i);
+    if (c == '\0') break;
+    cb[0] = c;
+    ser.print(cb);
+  }
+  ser.println("");
   ser.flush();
 }
+
+// Public overload for RAM strings
+void BufferedTrace::itrace(const char* rstr) {
+  itrace([rstr](int index) -> char {
+    return rstr[index];
+  });
+}
+
+// Public overload for Flash strings
+void BufferedTrace::itrace(const __FlashStringHelper* fstr) {
+  const char* fptr = reinterpret_cast<const char*>(fstr);
+  itrace([fptr](int index) -> char {
+    return pgm_read_byte(fptr + index);
+  });
+}
+
 
 // autoflush
 void BufferedTrace::setAutoFlush(bool af) {

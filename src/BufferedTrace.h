@@ -55,21 +55,39 @@ public:
   void close();
 
   /**
-   * @brief buffers information consisting of a string name and numeric value.
+   * @brief buffers information consisting of a string label and numeric value.
    * @details only works within an open - close bracket.
-   * @param string - the name of the value to be displayed
+   * @param label - the name of the value to be displayed
    * @param val - the long value to be displayed
    */
-  void trace(const char* string, long val);
+  void trace(const char* label, long val);
+
+  /**
+   * @brief buffers information consisting of a string label and numeric value.
+   * This overload allows the F() macro to be used to place the string in PROGMEM.
+   * @details only works within an open - close bracket.
+   * @param label - the name of the value to be displayed, stored in PROGMEM
+   * @param val - the long value to be displayed
+   */
+  void trace(const __FlashStringHelper* label, long val);
 
 
   /**
-   * @brief buffers information consisting of a string name and string value.
+   * @brief buffers information consisting of a string label and string value.
    * @details only works within an open - close bracket.
-   * @param string - the name of the value to be displayed
-   * @param val - the stringvalue to be displayed
+   * @param label - the name of the value to be displayed
+   * @param val - the string value to be displayed
    */
-  void trace(const char* string, const char* val);
+  void trace(const char* label, const char* val);
+
+  /**
+   * @brief buffers information consisting of a string label and string value. 
+   * This overload allows the F() macro to be used to place the string in PROGMEM.
+   * @details only works within an open - close bracket.
+   * @param label - the name of the value to be displayed, stored in PROGMEM
+   * @param val - the string value to be displayed
+   */
+  void trace(const __FlashStringHelper* label, const char* val);
 
 
   /**
@@ -105,6 +123,14 @@ public:
    */
   void itrace(const char* string);
 
+
+  /**
+   * @brief Immediately outputs a string.  This overload allows the F() macro to be used to place the string in PROGMEM.
+   * @details Writes a string to the serial interface without affecting the buffer.
+   * @param string - the string to be transmitted, stored in PROGMEM
+   */
+  void itrace(const __FlashStringHelper* string);
+
 private:
   char* buffer = NULL;
   uint16_t buflen = 0;
@@ -120,7 +146,25 @@ private:
    * template to allow strings to be in sram or progmem
    */
   template<typename StoredString>
+  void itrace(StoredString getChar);
+
+  /**
+   * template to allow strings to be in sram or progmem
+   */
+  template<typename StoredString>
   void trace(StoredString getChar);
+
+  /**
+   * template to allow strings to be in sram or progmem
+   */
+  template<typename StoredString>
+  void trace(StoredString getChar, long val);
+
+  /**
+   * template to allow strings to be in sram or progmem
+   */
+  template<typename StoredString>
+  void trace(StoredString getChar, const char *val);
   
 };
 
