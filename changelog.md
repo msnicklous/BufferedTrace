@@ -13,3 +13,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [v1.0.1]
 - Fixed annoying bug where debug strings of the library itself were being transmitted. Fixed misleading phrase in documentation.
+
+## [v1.1.0]
+- Added code to allow message strings and labels to be stored in PROGMEM using the F() macro.

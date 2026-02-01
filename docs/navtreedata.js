@@ -31,7 +31,8 @@ var NAVTREE =
         [ "Added", "md__c_1_2dev_2_arduino_2tries_2libraries_2_buffered_trace_2changelog.html#autotoc_md2", null ]
       ] ],
       [ "[v1.0.0]", "md__c_1_2dev_2_arduino_2tries_2libraries_2_buffered_trace_2changelog.html#autotoc_md3", null ],
-      [ "[v1.0.1]", "md__c_1_2dev_2_arduino_2tries_2libraries_2_buffered_trace_2changelog.html#autotoc_md4", null ]
+      [ "[v1.0.1]", "md__c_1_2dev_2_arduino_2tries_2libraries_2_buffered_trace_2changelog.html#autotoc_md4", null ],
+      [ "[v1.1.0]", "md__c_1_2dev_2_arduino_2tries_2libraries_2_buffered_trace_2changelog.html#autotoc_md5", null ]
     ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
@@ -44,7 +45,8 @@ var NAVTREE =
       [ "File List", "files.html", "files_dup" ],
       [ "File Members", "globals.html", [
         [ "All", "globals.html", null ],
-        [ "Variables", "globals_vars.html", null ]
+        [ "Variables", "globals_vars.html", null ],
+        [ "Macros", "globals_defs.html", null ]
       ] ]
     ] ]
   ] ]

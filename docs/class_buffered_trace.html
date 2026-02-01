@@ -110,16 +110,24 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a21f231a1cb0e354efa9e789fed93dd98"><td class="mdescLeft">&#160;</td><td class="mdescRight">resets the trace buffer, and starts buffering trace info.  <br /></td></tr>
 <tr class="memitem:adca10f09845b4e50313a2832f3dbd6b5" id="r_adca10f09845b4e50313a2832f3dbd6b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adca10f09845b4e50313a2832f3dbd6b5">close</a> ()</td></tr>
 <tr class="memdesc:adca10f09845b4e50313a2832f3dbd6b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">sends the buffered information collected since the last <a class="el" href="#a21f231a1cb0e354efa9e789fed93dd98" title="resets the trace buffer, and starts buffering trace info.">open()</a> call and resets the buffer.  <br /></td></tr>
-<tr class="memitem:a2bb97a5c1a2a72bfa17bebdb59139d4c" id="r_a2bb97a5c1a2a72bfa17bebdb59139d4c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2bb97a5c1a2a72bfa17bebdb59139d4c">trace</a> (const char *string, long val)</td></tr>
-<tr class="memdesc:a2bb97a5c1a2a72bfa17bebdb59139d4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">buffers information consisting of a string name and numeric value.  <br /></td></tr>
-<tr class="memitem:a56412404724d2c792e01dbe0e5c8d569" id="r_a56412404724d2c792e01dbe0e5c8d569"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a56412404724d2c792e01dbe0e5c8d569">trace</a> (const char *string, const char *val)</td></tr>
-<tr class="memdesc:a56412404724d2c792e01dbe0e5c8d569"><td class="mdescLeft">&#160;</td><td class="mdescRight">buffers information consisting of a string name and string value.  <br /></td></tr>
+<tr class="memitem:a1c1e2b9edac10abc7ad79b48e0371497" id="r_a1c1e2b9edac10abc7ad79b48e0371497"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1c1e2b9edac10abc7ad79b48e0371497">trace</a> (const char *label, long val)</td></tr>
+<tr class="memdesc:a1c1e2b9edac10abc7ad79b48e0371497"><td class="mdescLeft">&#160;</td><td class="mdescRight">buffers information consisting of a string label and numeric value.  <br /></td></tr>
+<tr class="memitem:aaeb872d30ad87ab6dbeed1c8fe6ebb7b" id="r_aaeb872d30ad87ab6dbeed1c8fe6ebb7b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaeb872d30ad87ab6dbeed1c8fe6ebb7b">trace</a> (const __FlashStringHelper *label, long val)</td></tr>
+<tr class="memdesc:aaeb872d30ad87ab6dbeed1c8fe6ebb7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">buffers information consisting of a string label and numeric value. This overload allows the F() macro to be used to place the string in PROGMEM.  <br /></td></tr>
+<tr class="memitem:a7e526ab59abc8a9383bb6abf5835cbd9" id="r_a7e526ab59abc8a9383bb6abf5835cbd9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7e526ab59abc8a9383bb6abf5835cbd9">trace</a> (const char *label, const char *val)</td></tr>
+<tr class="memdesc:a7e526ab59abc8a9383bb6abf5835cbd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">buffers information consisting of a string label and string value.  <br /></td></tr>
+<tr class="memitem:a16f15b5e8f1f559d537fc1ec77b2256c" id="r_a16f15b5e8f1f559d537fc1ec77b2256c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a16f15b5e8f1f559d537fc1ec77b2256c">trace</a> (const __FlashStringHelper *label, const char *val)</td></tr>
+<tr class="memdesc:a16f15b5e8f1f559d537fc1ec77b2256c"><td class="mdescLeft">&#160;</td><td class="mdescRight">buffers information consisting of a string label and string value. This overload allows the F() macro to be used to place the string in PROGMEM.  <br /></td></tr>
 <tr class="memitem:a3a1f7276f98edacb5041a591adfca23a" id="r_a3a1f7276f98edacb5041a591adfca23a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3a1f7276f98edacb5041a591adfca23a">trace</a> (const char *string)</td></tr>
 <tr class="memdesc:a3a1f7276f98edacb5041a591adfca23a"><td class="mdescLeft">&#160;</td><td class="mdescRight">buffers a string for output  <br /></td></tr>
+<tr class="memitem:a8c4f54bdc49f8595edf2ad1ce9398409" id="r_a8c4f54bdc49f8595edf2ad1ce9398409"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8c4f54bdc49f8595edf2ad1ce9398409">trace</a> (const __FlashStringHelper *string)</td></tr>
+<tr class="memdesc:a8c4f54bdc49f8595edf2ad1ce9398409"><td class="mdescLeft">&#160;</td><td class="mdescRight">buffers a string for output. This overload allows the F() macro to be used to place the string in PROGMEM.  <br /></td></tr>
 <tr class="memitem:ad48701e3c7a2ac1158560e82b2a591bd" id="r_ad48701e3c7a2ac1158560e82b2a591bd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad48701e3c7a2ac1158560e82b2a591bd">setAutoFlush</a> (bool autoFlush)</td></tr>
 <tr class="memdesc:ad48701e3c7a2ac1158560e82b2a591bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">whether or not to flush the buffer when full  <br /></td></tr>
 <tr class="memitem:aced17817eb6ff5072d7a13dd472d18d9" id="r_aced17817eb6ff5072d7a13dd472d18d9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aced17817eb6ff5072d7a13dd472d18d9">itrace</a> (const char *string)</td></tr>
 <tr class="memdesc:aced17817eb6ff5072d7a13dd472d18d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Immediately outputs a string.  <br /></td></tr>
+<tr class="memitem:ac3ef25f132c159e517378cb5a58d32f1" id="r_ac3ef25f132c159e517378cb5a58d32f1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac3ef25f132c159e517378cb5a58d32f1">itrace</a> (const __FlashStringHelper *string)</td></tr>
+<tr class="memdesc:ac3ef25f132c159e517378cb5a58d32f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Immediately outputs a string. This overload allows the F() macro to be used to place the string in PROGMEM.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Project: <a class="el" href="class_buffered_trace.html" title="Project: BufferedTrace for Arduino.">BufferedTrace</a> for Arduino. </p>
@@ -191,8 +199,33 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="ac3ef25f132c159e517378cb5a58d32f1" name="ac3ef25f132c159e517378cb5a58d32f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3ef25f132c159e517378cb5a58d32f1">&#9670;&#160;</a></span>itrace() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BufferedTrace::itrace </td>
+          <td>(</td>
+          <td class="paramtype">const __FlashStringHelper *</td>          <td class="paramname"><span class="paramname"><em>string</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Immediately outputs a string. This overload allows the F() macro to be used to place the string in PROGMEM. </p>
+<p>Writes a string to the serial interface without affecting the buffer. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">string</td><td>- the string to be transmitted, stored in PROGMEM </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="aced17817eb6ff5072d7a13dd472d18d9" name="aced17817eb6ff5072d7a13dd472d18d9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aced17817eb6ff5072d7a13dd472d18d9">&#9670;&#160;</a></span>itrace()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aced17817eb6ff5072d7a13dd472d18d9">&#9670;&#160;</a></span>itrace() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -285,8 +318,153 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a16f15b5e8f1f559d537fc1ec77b2256c" name="a16f15b5e8f1f559d537fc1ec77b2256c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16f15b5e8f1f559d537fc1ec77b2256c">&#9670;&#160;</a></span>trace() <span class="overload">[1/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BufferedTrace::trace </td>
+          <td>(</td>
+          <td class="paramtype">const __FlashStringHelper *</td>          <td class="paramname"><span class="paramname"><em>label</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>val</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>buffers information consisting of a string label and string value. This overload allows the F() macro to be used to place the string in PROGMEM. </p>
+<p>only works within an open - close bracket. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">label</td><td>- the name of the value to be displayed, stored in PROGMEM </td></tr>
+    <tr><td class="paramname">val</td><td>- the string value to be displayed </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aaeb872d30ad87ab6dbeed1c8fe6ebb7b" name="aaeb872d30ad87ab6dbeed1c8fe6ebb7b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaeb872d30ad87ab6dbeed1c8fe6ebb7b">&#9670;&#160;</a></span>trace() <span class="overload">[2/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BufferedTrace::trace </td>
+          <td>(</td>
+          <td class="paramtype">const __FlashStringHelper *</td>          <td class="paramname"><span class="paramname"><em>label</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long</td>          <td class="paramname"><span class="paramname"><em>val</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>buffers information consisting of a string label and numeric value. This overload allows the F() macro to be used to place the string in PROGMEM. </p>
+<p>only works within an open - close bracket. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">label</td><td>- the name of the value to be displayed, stored in PROGMEM </td></tr>
+    <tr><td class="paramname">val</td><td>- the long value to be displayed </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a8c4f54bdc49f8595edf2ad1ce9398409" name="a8c4f54bdc49f8595edf2ad1ce9398409"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c4f54bdc49f8595edf2ad1ce9398409">&#9670;&#160;</a></span>trace() <span class="overload">[3/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BufferedTrace::trace </td>
+          <td>(</td>
+          <td class="paramtype">const __FlashStringHelper *</td>          <td class="paramname"><span class="paramname"><em>string</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>buffers a string for output. This overload allows the F() macro to be used to place the string in PROGMEM. </p>
+<p>only works within an open - close bracket. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">string</td><td>- the string to be displayed, stored in PROGMEM </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a7e526ab59abc8a9383bb6abf5835cbd9" name="a7e526ab59abc8a9383bb6abf5835cbd9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e526ab59abc8a9383bb6abf5835cbd9">&#9670;&#160;</a></span>trace() <span class="overload">[4/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BufferedTrace::trace </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>label</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>val</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>buffers information consisting of a string label and string value. </p>
+<p>only works within an open - close bracket. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">label</td><td>- the name of the value to be displayed </td></tr>
+    <tr><td class="paramname">val</td><td>- the string value to be displayed </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1c1e2b9edac10abc7ad79b48e0371497" name="a1c1e2b9edac10abc7ad79b48e0371497"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c1e2b9edac10abc7ad79b48e0371497">&#9670;&#160;</a></span>trace() <span class="overload">[5/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BufferedTrace::trace </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>label</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long</td>          <td class="paramname"><span class="paramname"><em>val</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>buffers information consisting of a string label and numeric value. </p>
+<p>only works within an open - close bracket. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">label</td><td>- the name of the value to be displayed </td></tr>
+    <tr><td class="paramname">val</td><td>- the long value to be displayed </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a3a1f7276f98edacb5041a591adfca23a" name="a3a1f7276f98edacb5041a591adfca23a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3a1f7276f98edacb5041a591adfca23a">&#9670;&#160;</a></span>trace() <span class="overload">[1/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a1f7276f98edacb5041a591adfca23a">&#9670;&#160;</a></span>trace() <span class="overload">[6/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -304,66 +482,6 @@ Public Member Functions</h2></td></tr>
 <p>only works within an open - close bracket. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">string</td><td>- the string to be displayed </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a56412404724d2c792e01dbe0e5c8d569" name="a56412404724d2c792e01dbe0e5c8d569"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a56412404724d2c792e01dbe0e5c8d569">&#9670;&#160;</a></span>trace() <span class="overload">[2/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void BufferedTrace::trace </td>
-          <td>(</td>
-          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>string</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>val</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>buffers information consisting of a string name and string value. </p>
-<p>only works within an open - close bracket. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">string</td><td>- the name of the value to be displayed </td></tr>
-    <tr><td class="paramname">val</td><td>- the stringvalue to be displayed </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a2bb97a5c1a2a72bfa17bebdb59139d4c" name="a2bb97a5c1a2a72bfa17bebdb59139d4c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2bb97a5c1a2a72bfa17bebdb59139d4c">&#9670;&#160;</a></span>trace() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void BufferedTrace::trace </td>
-          <td>(</td>
-          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>string</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">long</td>          <td class="paramname"><span class="paramname"><em>val</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>buffers information consisting of a string name and numeric value. </p>
-<p>only works within an open - close bracket. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">string</td><td>- the name of the value to be displayed </td></tr>
-    <tr><td class="paramname">val</td><td>- the long value to be displayed </td></tr>
   </table>
   </dd>
 </dl>
