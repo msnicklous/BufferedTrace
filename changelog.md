@@ -16,3 +16,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [v1.1.0]
 - Added code to allow message strings and labels to be stored in PROGMEM using the F() macro.
+
+## [v1.1.1]
+- removed debugging code by default. reformatted code to improve readability.
