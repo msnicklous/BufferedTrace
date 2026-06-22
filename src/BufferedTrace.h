@@ -1,26 +1,35 @@
 #include "Arduino.h"
 #include <stdint.h>
-#include <avr/pgmspace.h>
 #ifndef BufferedTrace_h
 #define BufferedTrace_h
+
+#if defined(__AVR__)
+// needed for avr architecture
+#include <avr/pgmspace.h>
+#elif defined(ESP32)
+// can access program memory directly on the esp32
+#define pgm_read_byte(addr) (*(const unsigned char *)(addr))
+#else
+#warning "unsupported platform! assuming memory-mapped flash."
+#define pgm_read_byte(addr) (*(const unsigned char *)(addr))
+#endif
 
 /**
  ** @copyright Copyright (C) 2025 Martin Scott Nicklous
  ** @class BufferedTrace
- ** @brief Project: BufferedTrace for Arduino 
- ** 
- ** @details The BufferedTrace class provides a wrapper to the Serial object that allows 
- ** trace information to be collected in a buffer and send it out through 
- ** the serial interface. 
+ ** @brief Project: BufferedTrace for Arduino
+ **
+ ** @details The BufferedTrace class provides a wrapper to the Serial object that allows
+ ** trace information to be collected in a buffer and send it out through
+ ** the serial interface.
  **
  ** This header file also provides a shared global object Trace of class BufferedTrace
  ** for convenience.
  **
-*/
+ */
 
 class BufferedTrace {
 public:
-
   /**
    * @brief default constructor
    */
@@ -29,20 +38,20 @@ public:
   /**
    * @brief Sets a stream other than the standard Serial
    * @details If you need to use a serial output stream other than the standard
-   * Serial object, initialize your stream and pass it to this function 
+   * Serial object, initialize your stream and pass it to this function
    * before calling init().
-   * @param serial - the serial stream to be used  
+   * @param serial - the serial stream to be used
    */
-  void setStream(Stream& serial);
+  void setStream(Stream &serial);
 
   /**
-   * @brief Initializes the serial interface for communication. 
+   * @brief Initializes the serial interface for communication.
    * @details The init method is meant to
    * be called from a central location, for example in the top-level sketch. If init
    * is not called, no tracing will be performed.
    * @param bufsize - the desired buffer size
-  */
-  void init(uint16_t bufsize=80);
+   */
+  void init(uint16_t bufsize = 80);
 
   /**
    * @brief resets the trace buffer, and starts buffering trace info.
@@ -60,7 +69,7 @@ public:
    * @param label - the name of the value to be displayed
    * @param val - the long value to be displayed
    */
-  void trace(const char* label, long val);
+  void trace(const char *label, long val);
 
   /**
    * @brief buffers information consisting of a string label and numeric value.
@@ -69,8 +78,7 @@ public:
    * @param label - the name of the value to be displayed, stored in PROGMEM
    * @param val - the long value to be displayed
    */
-  void trace(const __FlashStringHelper* label, long val);
-
+  void trace(const __FlashStringHelper *label, long val);
 
   /**
    * @brief buffers information consisting of a string label and string value.
@@ -78,32 +86,30 @@ public:
    * @param label - the name of the value to be displayed
    * @param val - the string value to be displayed
    */
-  void trace(const char* label, const char* val);
+  void trace(const char *label, const char *val);
 
   /**
-   * @brief buffers information consisting of a string label and string value. 
+   * @brief buffers information consisting of a string label and string value.
    * This overload allows the F() macro to be used to place the string in PROGMEM.
    * @details only works within an open - close bracket.
    * @param label - the name of the value to be displayed, stored in PROGMEM
    * @param val - the string value to be displayed
    */
-  void trace(const __FlashStringHelper* label, const char* val);
-
+  void trace(const __FlashStringHelper *label, const char *val);
 
   /**
    * @brief buffers a string for output
    * @details only works within an open - close bracket.
    * @param string - the string to be displayed
    */
-  void trace(const char* string);
+  void trace(const char *string);
 
   /**
    * @brief buffers a string for output. This overload allows the F() macro to be used to place the string in PROGMEM.
    * @details only works within an open - close bracket.
    * @param string - the string to be displayed, stored in PROGMEM
    */
-  void trace(const __FlashStringHelper* string);
-
+  void trace(const __FlashStringHelper *string);
 
   /**
    * @brief whether or not to flush the buffer when full
@@ -115,57 +121,54 @@ public:
    */
   void setAutoFlush(bool autoFlush);
 
-
   /**
    * @brief Immediately outputs a string.
    * @details Writes a string to the serial interface without affecting the buffer.
    * @param string - the string to be transmitted.
    */
-  void itrace(const char* string);
-
+  void itrace(const char *string);
 
   /**
    * @brief Immediately outputs a string.  This overload allows the F() macro to be used to place the string in PROGMEM.
    * @details Writes a string to the serial interface without affecting the buffer.
    * @param string - the string to be transmitted, stored in PROGMEM
    */
-  void itrace(const __FlashStringHelper* string);
+  void itrace(const __FlashStringHelper *string);
 
 private:
-  char* buffer = NULL;
+  char *buffer = NULL;
   uint16_t buflen = 0;
   bool traceOn = false;
   bool isOpen = false;
   bool autoFlush = true;
-  Stream& ser = Serial;
+  Stream &ser = Serial;
 
   // helper funtion to add string to buffer only if there is room
-  void add2Buffer(const char* string);
+  void add2Buffer(const char *string);
 
   /**
    * template to allow strings to be in sram or progmem
    */
-  template<typename StoredString>
+  template <typename StoredString>
   void itrace(StoredString getChar);
 
   /**
    * template to allow strings to be in sram or progmem
    */
-  template<typename StoredString>
+  template <typename StoredString>
   void trace(StoredString getChar);
 
   /**
    * template to allow strings to be in sram or progmem
    */
-  template<typename StoredString>
+  template <typename StoredString>
   void trace(StoredString getChar, long val);
 
   /**
    * template to allow strings to be in sram or progmem
    */
-  template<typename StoredString>
+  template <typename StoredString>
   void trace(StoredString getChar, const char *val);
-  
 };
 
 // global trace object for convenience
